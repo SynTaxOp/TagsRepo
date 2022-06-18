@@ -1,0 +1,25 @@
+mkdir TagsRepo
+cd TagsRepo
+git init
+touch file1.txt
+touch file2.txt
+git commit -am "Add two initial files"
+git tag -a 1.0.0 -m "First Version"
+git remote add origin github.com/SynTaxOp/TagsRepo
+git push 
+rm file2.txt
+git commit -am "Deleted  file2"
+git tag -a 1.0.1 -m "Second Version"
+touch file3.txt
+git commit -am "Created  file3"
+git tag -a 1.1.0 -m "Third Version"
+git checkout 1.0.1
+nano file1.txt
+git commit -am "Changed file1"
+git tag -a 1.0.2 -m "Version update of Second Version"
+git checkout 1.1.0
+nano file3.txt
+git commit -am "Changed file3"
+git tag -a 1.1.1 -m "Version update of Third Version"
+git push origin --all
+git push --tags
